@@ -50,6 +50,7 @@ h1 {
 }
 
 .remove-button {
+  cursor: pointer;
   flex-basis: 48%;
   color: #ce4242;
   font-size: 1.5rem;
