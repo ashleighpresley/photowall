@@ -59,3 +59,14 @@ h1 {
   padding: 5px;
   background-color: #fff;
 }
+
+.addIcon {
+  margin: 20px auto;
+  display: block;
+  padding: 40px;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23000000' viewBox='0 0 256 256'%3e%3crect width='256' height='256' fill='none'%3e%3c/rect%3e%3ccircle cx='128' cy='128' r='96' fill='none' stroke='%23000000' stroke-miterlimit='10' stroke-width='16'%3e%3c/circle%3e%3cline x1='88' y1='128' x2='168' y2='128' fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='16'%3e%3c/line%3e%3cline x1='128' y1='88' x2='128' y2='168' fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='16'%3e%3c/line%3e%3c/svg%3e")
+    center no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+}
