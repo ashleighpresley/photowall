@@ -8,7 +8,10 @@ import rootReducer from "./redux/reducer";
 import App from "./Components/App";
 
 //pass in reducer to createStore which defines how data will be updated, can take in multiple reducers but will consilidate them into one root reducer
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
