@@ -23,17 +23,12 @@ class Main extends Component {
             </div>
           )}
         />
-        {/* <Route
+        <Route
           path="/AddPhoto"
           render={({ history }) => (
-            <AddPhoto
-              onAddPhoto={(addedPost) => {
-                this.addPhoto(addedPost);
-                history.push("/");
-              }}
-            />
+            <AddPhoto {...this.props} onHistory={history} />
           )}
-        /> */}
+        />
       </div>
     );
   }
