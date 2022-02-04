@@ -1,6 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { ChatIcon } from "@heroicons/react/outline";
 
 function Photo(props) {
   const post = props.post;
@@ -22,6 +23,12 @@ function Photo(props) {
         >
           Remove
         </button>
+        <Link className="button" to={`/post/${post.id}`}>
+          <div className="comment-count">
+            <ChatIcon className="speech-bubble" />
+            {props.comments[post.id] ? props.comments[post.id].length : 0}
+          </div>
+        </Link>
       </div>
     </figure>
   );
