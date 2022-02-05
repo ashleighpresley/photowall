@@ -8,8 +8,12 @@ import { removePost } from "../redux/actions";
 import { Link } from "react-router-dom";
 
 class Main extends Component {
+  state = { loading: true };
+
   componentDidMount() {
-    this.props.startLoadingPost();
+    this.props.startLoadingPost().then(() => {
+      this.setState({ loading: false });
+    });
     this.props.startLoadingComment();
   }
   render() {
@@ -33,7 +37,13 @@ class Main extends Component {
         />
         <Route
           path="/post/:id"
-          render={(params) => <SinglePhoto {...this.props} {...params} />}
+          render={(params) => (
+            <SinglePhoto
+              loading={this.state.loading}
+              {...this.props}
+              {...params}
+            />
+          )}
         />
       </div>
     );
