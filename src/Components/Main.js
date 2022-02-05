@@ -8,10 +8,9 @@ import { removePost } from "../redux/actions";
 import { Link } from "react-router-dom";
 
 class Main extends Component {
-  constructor() {
-    super();
+  componentDidMount() {
+    this.props.startLoadingPost();
   }
-
   render() {
     return (
       <div>

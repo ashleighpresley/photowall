@@ -1,3 +1,43 @@
+import { database } from "../database/config";
+
+//add posts to database
+export function startAddingPost(post) {
+  return (dispatch) => {
+    return database
+      .ref("posts")
+      .update({ [post.id]: post })
+      .then(() => {
+        dispatch(addPost(post));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+}
+
+//load posts from database
+export function startLoadingPost(post) {
+  return (dispatch) => {
+    return database
+      .ref("posts")
+      .once("value")
+      .then((snapshot) => {
+        let posts = [];
+        snapshot.forEach((childSnapshot) => {
+          posts.push(childSnapshot.val());
+        });
+        dispatch(loadPosts(posts));
+      });
+  };
+}
+
+export function loadPosts(posts) {
+  return {
+    type: "LOAD_POSTS",
+    posts,
+  };
+}
+
 //remove post
 export function removePost(index) {
   return {
