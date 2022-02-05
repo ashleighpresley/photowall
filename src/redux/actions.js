@@ -15,6 +15,21 @@ export function startAddingPost(post) {
   };
 }
 
+//add comments to database
+export function startAddingComment(comment, id) {
+  return (dispatch) => {
+    return database
+      .ref(`comments/${id}`)
+      .push(comment)
+      .then(() => {
+        dispatch(addComment(comment, id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+}
+
 //load posts from database
 export function startLoadingPost(post) {
   return (dispatch) => {
@@ -27,6 +42,9 @@ export function startLoadingPost(post) {
           posts.push(childSnapshot.val());
         });
         dispatch(loadPosts(posts));
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 }
@@ -38,6 +56,9 @@ export function startRemovingPost(index, id) {
       .remove()
       .then(() => {
         dispatch(removePost(index));
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 }
