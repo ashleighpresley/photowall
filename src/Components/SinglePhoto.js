@@ -11,7 +11,7 @@ class SinglePhoto extends Component {
     const index = this.props.posts.findIndex((post) => post.id === id);
     if (this.props.loading === true) {
       return <div className="loader"> ...loading </div>;
-    } else {
+    } else if (post) {
       return (
         <div className="single-photo">
           <Photo post={post} {...this.props} index={index} />
@@ -22,6 +22,8 @@ class SinglePhoto extends Component {
           />
         </div>
       );
+    } else {
+      return <div className="pagedoesntexist">oops! Page doesn't exist.</div>;
     }
   }
 }
