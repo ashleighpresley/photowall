@@ -31,7 +31,7 @@ export function startAddingComment(comment, id) {
 }
 
 //load posts from database
-export function startLoadingPost(post) {
+export function startLoadingPost() {
   return (dispatch) => {
     return database
       .ref("posts")
@@ -42,6 +42,24 @@ export function startLoadingPost(post) {
           posts.push(childSnapshot.val());
         });
         dispatch(loadPosts(posts));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+}
+//load posts from database
+export function startLoadingComment() {
+  return (dispatch) => {
+    return database
+      .ref("comments")
+      .once("value")
+      .then((snapshot) => {
+        let comments = {};
+        snapshot.forEach((childSnapshot) => {
+          comments[childSnapshot.key] = Object.values(childSnapshot.val());
+        });
+        dispatch(loadComments(comments));
       })
       .catch((error) => {
         console.log(error);
@@ -67,6 +85,13 @@ export function loadPosts(posts) {
   return {
     type: "LOAD_POSTS",
     posts,
+  };
+}
+
+export function loadComments(comments) {
+  return {
+    type: "LOAD_COMMENTS",
+    comments,
   };
 }
 

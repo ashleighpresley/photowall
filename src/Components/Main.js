@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 class Main extends Component {
   componentDidMount() {
     this.props.startLoadingPost();
+    this.props.startLoadingComment();
   }
   render() {
     return (
