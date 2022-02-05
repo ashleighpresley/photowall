@@ -31,6 +31,17 @@ export function startLoadingPost(post) {
   };
 }
 
+export function startRemovingPost(index, id) {
+  return (dispatch) => {
+    return database
+      .ref(`posts/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removePost(index));
+      });
+  };
+}
+
 export function loadPosts(posts) {
   return {
     type: "LOAD_POSTS",

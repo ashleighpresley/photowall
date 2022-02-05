@@ -17,7 +17,7 @@ function Photo(props) {
         <button
           className="remove-button"
           onClick={() => {
-            props.removePost(props.index);
+            props.startRemovingPost(props.index, post.id);
             props.history.push("/");
           }}
         >
