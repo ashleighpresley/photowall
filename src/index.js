@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./styles/stylesheet.css";
-import { BrowserRouter } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import rootReducer from "./redux/reducer";
-import App from "./Components/App";
+import { BrowserRouter } from "react-router-dom";
+import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import { database } from "./database/config";
+import App from "./Components/App";
+import rootReducer from "./redux/reducer";
+import "./styles/stylesheet.css";
 
 //pass in reducer to createStore which defines how data will be updated, can take in multiple reducers but will consilidate them into one root reducer
 const store = createStore(

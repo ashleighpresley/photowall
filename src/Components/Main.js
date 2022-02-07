@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import Title from "./Title";
-import Photowall from "./PhotoWall";
+import { Link, Route } from "react-router-dom";
 import AddPhoto from "./AddPhoto";
+import Photowall from "./PhotoWall";
 import SinglePhoto from "./SinglePhoto";
-import { Route } from "react-router-dom";
-import { removePost } from "../redux/actions";
-import { Link } from "react-router-dom";
 
 class Main extends Component {
   state = { loading: true };
